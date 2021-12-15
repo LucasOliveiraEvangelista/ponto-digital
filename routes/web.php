@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
-
+use App\Models\Ponto;
 
 
 
@@ -75,11 +75,6 @@ Route::get('/perfil', function () {
 });
 
 
-
-
-
-
-
 Route::get('/register', function(){
     return view('register', [App\Http\Controllers\RegisterController::class, 'index']);
 });
@@ -114,10 +109,9 @@ Route::get('/editar/{id}', function ($id) {
 
 Route::post('/editar-user/{id}', function ($id, Request $request) {
     $usuario = Usuario::findOrfail( $id );
-        $usuario->update( $request->all() );
-        \Session::flash('msg_update', 'Atualizado com sucesso!');
-        return Redirect::to('/home');
-
+    $usuario->update( $request->all() );
+    \Session::flash('msg_update', 'Atualizado com sucesso!');
+    return Redirect::to('/home');
 
     //dd($request->all());  -> Debug and die
 
@@ -133,4 +127,20 @@ Route::get('/ponto', function () {
     return view('ponto');
 });
 
+Route::get('/error', function () {
+    return view('error');
+});
+
+Route::post('/processa', function (Request $request) {
+
+    $dia = date("d/m/Y");
+    $hora = date("H:i:s");
+    Ponto::create([
+        'user'=>$request->usuario,
+        'tipo'=>$request->tipo,
+        'dia'=>$dia,
+        'hora'=>$hora
+    ]);
+    return Redirect::to('/home');
+});
 
