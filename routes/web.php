@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PontosController;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Ponto;
@@ -123,9 +124,7 @@ Route::post('/editar-user/{id}', function ($id, Request $request) {
 
 //    Criação de ponto      //
 
-Route::get('/ponto', function () {
-    return view('ponto');
-});
+Route::get('/ponto', [App\Http\Controllers\PontosController::class, 'index']);
 
 Route::get('/error', function () {
     return view('error');
@@ -144,3 +143,6 @@ Route::post('/processa', function (Request $request) {
     return Redirect::to('/home');
 });
 
+Route::get('/meu_ponto/{user}', [App\Http\Controllers\PontosController::class, 'ver']);
+Route::get('/pdf', [App\Http\Controllers\PdfController::class, 'gerapdf'])->name('excel');
+Route::get('users/export', [App\Http\Controllers\PlanilhasController::class, 'export'])->name('excel');

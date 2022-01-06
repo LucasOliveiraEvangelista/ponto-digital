@@ -2,6 +2,8 @@
 @section('title', 'Ponto')
 @section('content')
 
+
+
     <div class="table-responsive mt-5">
         
            
@@ -31,8 +33,10 @@
         
     </div>
     <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-success" type="button">Download Excel</button>
-        <button class="btn btn-danger" type="button">Download PDF</button>
+        <button  class="btn btn-success" type="button">Download Excel</button>
+        <a href="/pdf" class="btn btn-danger" >Download PDF</a>
     </div>
+
+    
 
 @endsection

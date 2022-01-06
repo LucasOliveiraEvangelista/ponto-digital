@@ -39,7 +39,7 @@
                             <a class="nav-link active" href="#"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/ponto">Meu Ponto</a>
+                            <a class="nav-link active" href="/meu_ponto/{{ session('user')}}">Meu Ponto</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="#"></a>

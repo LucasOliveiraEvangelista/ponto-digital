@@ -1,12 +1,13 @@
-@extends('layouts.main')
-@section('title', 'Ponto')
-@section('content')
-
-    <div class="table-responsive mt-5">
-        
-           
-       
-        <table class="table table-dark">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<table class="table table-dark">
             <thead>
                 <tr>
                 <th scope="col">User</th>
@@ -28,11 +29,5 @@
             </tbody>
             
         </table>
-        
-    </div>
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-success" type="button">Download Excel</button>
-        <button class="btn btn-danger" type="button">Download PDF</button>
-    </div>
-
-@endsection
+</body>
+</html>
